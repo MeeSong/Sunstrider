@@ -7,11 +7,11 @@ SDK10.0.17134
 
 ## Project
 
-> [Irritate](./Source/Irritate/README.md)  
+> [Irritate](./Source/Irritate)  
 > Trigger PatchGuard Driver
 
-> [PGKd](./Source/PGKd/README.md)  
+> [PGKd](./Source/PGKd)  
 > Windbg Extension: Analyze PatchGuard
 
-> [Sunstrider](./Source/Sunstrider/README.md)  
+> [Sunstrider](./Source/Sunstrider)  
 > Bypass PatchGuard Driver (Undone)
