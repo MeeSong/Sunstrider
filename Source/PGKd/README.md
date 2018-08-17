@@ -5,6 +5,10 @@ Windbg Extension: Analyze PatchGuard
 > Support:   
 > Windows7 ~ Windows10 (1803), But don't support Windows 8.1 Because i don't got dump.
 
-![analyze](.\Screenshot\analyze.jpg)
+> Thanks:  
+> [tandasat/findpg](https://github.com/tandasat/findpg)  
+> [tandasat/PgResarch](https://github.com/tandasat/PgResarch)  
 
-![findpg](.\Screenshot\findpg.jpg)
+![analyze](\Screenshot\analyze.jpg)
+
+![findpg](\Screenshot\findpg.jpg)
