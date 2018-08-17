@@ -9,6 +9,6 @@ Windbg Extension: Analyze PatchGuard
 > [tandasat/findpg](https://github.com/tandasat/findpg)  
 > [tandasat/PgResarch](https://github.com/tandasat/PgResarch)  
 
-![analyze](\Screenshot\analyze.jpg)
+![analyze](./Screenshot/analyze.jpg)
 
-![findpg](\Screenshot\findpg.jpg)
+![findpg](./Screenshot/findpg.jpg)
