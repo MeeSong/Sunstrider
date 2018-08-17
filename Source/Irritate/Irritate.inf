@@ -1,0 +1,84 @@
+;
+; Irritate.inf
+;
+
+[Version]
+Signature   = "$WINDOWS NT$"
+Class       = AntiVirus
+ClassGuid   = {b1d1a169-c54f-4379-81db-bee7d88d7454}
+Provider    = %ManufacturerName%
+CatalogFile = Irritate.cat
+DriverVer   = 08/02/2018
+
+;*************************************
+
+[DestinationDirs]
+DefaultDestDir = 12
+
+[SourceDisksNames]
+1 = %DiskId%,,,""
+
+[SourceDisksFiles]
+Irritate.sys     = 1,,
+Irritate.x86.sys = 1,,
+Irritate.x64.sys = 1,,
+
+[Files.Copy.NTx86]
+Irritate.sys,Irritate.x86.sys,,0x00004020 ; COPYFLG_IN_USE_RENAME | COPYFLG_NO_VERSION_DIALOG
+
+[Files.Copy.NTamd64]
+Irritate.sys,Irritate.x64.sys,,0x00004020
+
+[Files.Del]
+Irritate.sys
+
+;*************************************
+
+[DefaultInstall.NTx86]
+CopyFiles=Files.Copy.NTx86
+
+[DefaultInstall.NTamd64]
+CopyFiles=Files.Copy.NTamd64
+
+[DefaultInstall.NTx86.Services]
+AddService = %ServiceName%,%ServicInstFlags%, ServiceInstall
+
+[DefaultInstall.NTamd64.Services]
+AddService = %ServiceName%,%ServicInstFlags%, ServiceInstall
+
+[DefaultUninstall.NTx86]
+DelFiles   = Files.Del
+
+[DefaultUninstall.NTamd64]
+DelFiles   = Files.Del
+
+[DefaultUninstall.NTx86.Services]
+DelService = %ServiceName%,0x200
+
+[DefaultUninstall.NTamd64.Services]
+DelService = %ServiceName%,0x200
+
+;*************************************
+
+[ServiceInstall]
+DisplayName    = %ServiceName%
+Description    = %ServiceDesc%
+ServiceBinary  = %12%\Irritate.sys
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; 0 = SERVICE_BOOT_START
+                                    ; 1 = SERVICE_SYSTEM_START
+                                    ; 2 = SERVICE_AUTO_START
+                                    ; 3 = SERVICE_DEMAND_START
+                                    ; 4 = SERVICE_DISABLED
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+
+;*************************************
+
+[Strings]
+ServicInstFlags         = 0x00000000
+
+ManufacturerName        = "Sunstrider"
+DriverName              = "Irritate"
+ServiceDesc             = "Sunstrider's PatchGuard Irritate"
+ServiceName             = "Irritate"
+DiskId                  = "Irritate Device Installation Disk"

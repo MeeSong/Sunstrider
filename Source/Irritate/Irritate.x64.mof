@@ -1,0 +1,60 @@
+#pragma autorecover
+#pragma classflags("forceupdate")
+#pragma namespace("\\\\.\\root\\WMI")
+//
+// WPP Generated File
+// PDB:  E:\Self\Sunstrider\Project\..\Output\Debug\Irritate.x64.pdb
+// PDB:  Last Updated :2018-08-02:04:03:11:963 (UTC) [tracepdb]
+//
+
+//ModuleName = Irritate.x64WPPTraceGuid	 (Init called in Function WPP_CONTROL_ANNOTATION)
+[Dynamic,
+ Description("Irritate.x64_WPPTraceGuid"),
+ guid("{7CA5906D-C7EE-4BCB-A179-C4609D13A9BC}"),
+ locale("MS\\0x409")]
+class Irritate.x64WPPTraceGuid : EventTrace
+{
+    [Description ("Enable Flags") : amended,
+        ValueDescriptions{
+             "WPP_ANY_FLAGS Flag",
+             "WPP_FUNC_TRACE Flag"},
+        DefineValues{
+             "WPP_ANY_FLAGS",
+             "WPP_FUNC_TRACE"},
+        Values{
+             "WPP_ANY_FLAGS",
+             "WPP_FUNC_TRACE"},
+        ValueMap{
+             "0x00000001",
+             "0x00000002"}: amended
+    ]
+    uint32 Flags;
+    [Description ("Levels") : amended,
+        ValueDescriptions{
+            "Abnormal exit or termination",
+            "Severe errors that need logging",
+            "Warnings such as allocation failure",
+            "Includes non-error cases",
+            "Detailed traces from intermediate steps" } : amended,
+         DefineValues{
+            "TRACE_LEVEL_FATAL",
+            "TRACE_LEVEL_ERROR",
+            "TRACE_LEVEL_WARNING"
+            "TRACE_LEVEL_INFORMATION",
+            "TRACE_LEVEL_VERBOSE" },
+        Values{
+            "Fatal",
+            "Error",
+            "Warning",
+            "Information",
+            "Verbose" },
+        ValueMap{
+            "0x1",
+            "0x2",
+            "0x3",
+            "0x4",
+            "0x5" },
+        ValueType("index")
+    ]
+    uint32 Level;
+};

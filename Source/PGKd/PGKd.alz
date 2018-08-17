@@ -1,0 +1,3 @@
+PluginId       PGKd
+DebuggeeClass  Kernel
+BugCheckCode   0x109

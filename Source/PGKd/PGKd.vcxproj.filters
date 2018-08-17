@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Src">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx;h;hh;hpp;hxx;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Src\Sdk">
+      <UniqueIdentifier>{98aa858e-8fb8-41af-ab90-e8fd656509c9}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="Debuggers\inc\engextcpp.cpp">
+      <Filter>Src\Sdk</Filter>
+    </ClCompile>
+    <ClCompile Include="Progress.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="PoolTagNote.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+    <ClCompile Include="PGKd.cpp">
+      <Filter>Src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="Debuggers\inc\dbgeng.h">
+      <Filter>Src\Sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Debuggers\inc\dbghelp.h">
+      <Filter>Src\Sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Debuggers\inc\engextcpp.hpp">
+      <Filter>Src\Sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Debuggers\inc\extsfns.h">
+      <Filter>Src\Sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="Debuggers\inc\wdbgexts.h">
+      <Filter>Src\Sdk</Filter>
+    </ClInclude>
+    <ClInclude Include="scope_guard.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="Progress.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="PoolTagNote.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="WDK.PGContext.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="WDK.PTE.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="WDK.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+    <ClInclude Include="PGKd.h">
+      <Filter>Src</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="PGKd.def">
+      <Filter>Src</Filter>
+    </None>
+    <None Include="PGKd.alz" />
+  </ItemGroup>
+</Project>
