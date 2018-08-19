@@ -30,7 +30,7 @@ namespace wdk
         Windows10_1703,             // 10.0.15063
         Windows10_1709,             // 10.0.16299
         Windows10_1803,             // 10.0.17134
-        Windows10_1809,             // 10.0.?????
+        Windows10_1809,             // 10.0.17741
         WindowsMax,
     };
 
@@ -75,6 +75,22 @@ namespace wdk
 
     } POOL_TYPE;
 
+    typedef union _KIDTENTRY64 {
+        struct {
+            UINT16 OffsetLow;
+            UINT16 Selector;
+            UINT16 IstIndex : 3;
+            UINT16 Reserved0 : 5;
+            UINT16 Type : 5;
+            UINT16 Dpl : 2;
+            UINT16 Present : 1;
+            UINT16 OffsetMiddle;
+            UINT32 OffsetHigh;
+            UINT32 Reserved1;
+        };
+
+        UINT64 Alignment;
+    } KIDTENTRY64, *PKIDTENTRY64;
 
     typedef struct _POOL_TRACKER_BIG_PAGES
     {

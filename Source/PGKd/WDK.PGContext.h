@@ -48,7 +48,8 @@ namespace wdk
     template<UINT64 _NumberOfStrs>
     struct PGProtectString
     {
-        UINT64  Bytes;          // UINT64 * (2 + Count)
+        UINT32  Bytes;          // UINT64 * (2 + Count)
+        UINT32  Unkonwn$;
         UINT64  Flags;
         UINT64  Strings[_NumberOfStrs];
     };
@@ -114,13 +115,13 @@ namespace wdk
             UINT64  PspCidTable;
             UINT64  SwapContext;
             UINT64  EnlightenedSwapContext;
-            UINT64  Unkonwn0;
-            UINT64  Unkonwn1;
-            UINT64  Unkonwn2;
+            UINT64  Unkonwn$;
+            UINT64  Unkonwn$;
+            UINT64  Unkonwn$;
             UINT64  WorkerRoutine;
             UINT64  WorkerRoutineContext;
-            UINT32  Unkonwn3;
-            UINT32  Unkonwn4;
+            UINT32  Unkonwn$;
+            UINT32  Unkonwn$;
             UINT64  Prcb;
             UINT64  PGPageBase;
             UINT64  DcpRoutineToBeScheduled;            // E.g nt!ExpTimeZoneDpcRoutine
@@ -133,7 +134,11 @@ namespace wdk
             UINT32  OffsetOfFsRtlUninitializeSmallMcb;  // nt!FsRtlUninitializeSmallMcb
             UINT32  OffsetOfPGProtectCode2Table;        // PGProtectCode2[?]
 
-            UINT64  Unkonwn7[14];
+            UINT64  Unkonwn$[7];
+
+            KIDTENTRY64 PGProtectIDTItems[3];
+
+            UINT64  Unkonwn$;
 
             UINT64  IsTiggerPG;
             UINT64  BugCheckArg0;
@@ -265,7 +270,11 @@ namespace wdk
             UINT32  OffsetOfPGHashValidationBlockTable; // PGHashValidationBlock[?]
             UINT32  Unkonwn$;
 
-            UINT64  Unkonwn$[16];
+            UINT64  Unkonwn$[7];
+
+            KIDTENTRY64 PGProtectIDTItems[3];
+
+            UINT64  Unkonwn$[3];
 
             UINT64  BaseOfNtos;
             UINT64  BaseOfHal;
@@ -573,7 +582,11 @@ namespace wdk
 
             UINT64  SpinLock;
 
-            UINT64  Unkonwn$[14];
+            UINT64  Unkonwn$[7];
+
+            KIDTENTRY64 PGProtectIDTItems[3];
+
+            UINT64  Unkonwn$;
 
             UINT64  BaseOfNtos;
             UINT64  BaseOfHal;
@@ -782,7 +795,11 @@ namespace wdk
 
             UINT64  SpinLock;
 
-            UINT64  Unkonwn$[14];
+            UINT64  Unkonwn$[7];
+
+            KIDTENTRY64 PGProtectIDTItems[3];
+
+            UINT64  Unkonwn$;
 
             UINT64  BaseOfNtos;
             UINT64  BaseOfHal;
@@ -992,7 +1009,11 @@ namespace wdk
 
             UINT64  SpinLock;
 
-            UINT64  Unkonwn$[15];
+            UINT64  Unkonwn$[7];
+
+            KIDTENTRY64 PGProtectIDTItems[3];
+
+            UINT64  Unkonwn$[2];
 
             UINT64  BaseOfNtos;
             UINT64  BaseOfHal;
@@ -1204,7 +1225,11 @@ namespace wdk
 
             UINT64  SpinLock;
 
-            UINT64  Unkonwn$[18];
+            UINT64  Unkonwn$[7];
+
+            KIDTENTRY64 PGProtectIDTItems[3];
+
+            UINT64  Unkonwn$[5];
 
             UINT64  BaseOfNtos;
             UINT64  BaseOfHal;
@@ -1420,7 +1445,11 @@ namespace wdk
 
             UINT64  SpinLock;
 
-            UINT64  Unkonwn$[24];
+            UINT64  Unkonwn$[8];
+
+            KIDTENTRY64 PGProtectIDTItems[3];
+
+            UINT64  Unkonwn$[10];
 
             UINT64  BaseOfNtos;
             UINT64  BaseOfHal;
@@ -1637,7 +1666,11 @@ namespace wdk
 
             UINT64  SpinLock;
 
-            UINT64  Unkonwn$[24];
+            UINT64  Unkonwn$[8];
+
+            KIDTENTRY64 PGProtectIDTItems[3];
+
+            UINT64  Unkonwn$[10];
 
             UINT64  BaseOfNtos;
             UINT64  BaseOfHal;
@@ -1663,5 +1696,226 @@ namespace wdk
         };
     }
 
+    namespace build_17741 
+    {
+        using PGContextHeader = build_17134::PGContextHeader;
+
+        struct PGContext : public PGContextHeader
+        {
+            UINT64  ExAcquireResourceSharedLite;
+            UINT64  ExAcquireResourceExclusiveLite;
+            UINT64  ExAllocatePoolWithTag;
+            UINT64  ExFreePool;
+            UINT64  ExMapHandleToPointer;
+            UINT64  ExQueueWorkItem;
+            UINT64  ExReleaseResourceLite;
+            UINT64  ExUnlockHandleTableEntry;
+            UINT64  ExAcquirePushLockExclusiveEx;
+            UINT64  ExReleasePushLockExclusiveEx;
+            UINT64  ExAcquirePushLockSharedEx;
+            UINT64  ExReleasePushLockSharedEx;
+            UINT64  KeAcquireInStackQueuedSpinLockAtDpcLevel;
+            UINT64  ExAcquireSpinLockSharedAtDpcLevel;
+            UINT64  KeBugCheckEx;
+            UINT64  KeDelayExecutionThread;
+            UINT64  KeEnterCriticalRegionThread;
+            UINT64  KeLeaveCriticalRegion;
+            UINT64  KeEnterGuardedRegion;
+            UINT64  KeLeaveGuardedRegion;
+            UINT64  KxReleaseQueuedSpinLock;
+            UINT64  KeReleaseInStackQueuedSpinLockFromDpcLevel;
+            UINT64  KeRevertToUserGroupAffinityThread;
+            UINT64  KeProcessorGroupAffinity;
+            UINT64  KeInitializeEnumerationContext;
+            UINT64  KeEnumerateNextProcessor;
+            UINT64  KeCountSetBitsAffinityEx;
+            UINT64  KeQueryAffinityProcess;
+            UINT64  KeQueryAffinityThread;
+            UINT64  KeSetSystemGroupAffinityThread;
+            UINT64  KeSetCoalescableTimer;
+            UINT64  ObfDereferenceObject;
+            UINT64  ObReferenceObjectByName;
+            UINT64  RtlImageDirectoryEntryToData;
+            UINT64  RtlImageNtHeader;
+            UINT64  RtlLookupFunctionTable;
+            UINT64  RtlPcToFileHeader;
+            UINT64  RtlSectionTableFromVirtualAddress;
+            UINT64  DbgPrint;
+            UINT64  MmAllocateIndependentPages;
+            UINT64  MmFreeIndependentPages;
+            UINT64  MmSetPageProtection;
+            UINT64  Unkonwn$;
+            UINT64  Unkonwn$;
+            UINT64  Unkonwn$;
+            UINT64  Unkonwn$;
+            UINT64  Unkonwn$;
+            UINT64  RtlLookupFunctionEntry;
+            UINT64  KeAcquireSpinLockRaiseToDpc;
+            UINT64  KeReleaseSpinLock;
+            UINT64  MmGetSessionById;
+            UINT64  MmGetNextSession;
+            UINT64  MmQuitNextSession;
+            UINT64  MmAttachSession;
+            UINT64  MmDetachSession;
+            UINT64  MmGetSessionIdEx;
+            UINT64  MmIsSessionAddress;
+            UINT64  MmIsAddressValid;
+            UINT64  MmSessionGetWin32Callouts;
+            UINT64  KeInsertQueueApc;
+            UINT64  KeWaitForSingleObject;
+            UINT64  PsCreateSystemThread;
+            UINT64  ExReferenceCallBackBlock;
+            UINT64  ExGetCallBackBlockRoutine;
+            UINT64  ExDereferenceCallBackBlock;
+            UINT64  KiScbQueueScanWorker;
+            UINT64  PspEnumerateCallback;
+            UINT64  CmpEnumerateCallback;
+            UINT64  DbgEnumerateCallback;
+            UINT64  ExpEnumerateCallback;
+            UINT64  ExpGetNextCallback;
+            UINT64  EmpCheckErrataList_;
+            UINT64  KiSchedulerApcTerminate;
+            UINT64  KiSchedulerApc;
+            UINT64  EmpCheckErrataList;
+            UINT64  PGSelfEncryptWaitAndDecrypt;
+            UINT64  MmAllocatePagesForMdlEx;
+            UINT64  MmAllocateMappingAddress;
+            UINT64  MmMapLockedPagesWithReservedMapping;
+            UINT64  MmUnmapReservedMapping;
+            UINT64  Unkonwn$; // nt!KiSwInterruptDispatch+0x????
+            UINT64  Unkonwn$; // nt!KiSwInterruptDispatch+0x????
+            UINT64  MmAcquireLoadLock;
+            UINT64  MmReleaseLoadLock;
+            UINT64  KeEnumerateQueueApc;
+            UINT64  KeIsApcRunningThread;
+            UINT64  Unkonwn$; // nt!KiSwInterruptDispatch+0x???
+            UINT64  PsAcquireProcessExitSynchronization;
+            UINT64  ObDereferenceProcessHandleTable;
+            UINT64  PsGetNextProcess;
+            UINT64  PsQuitNextProcess;
+            UINT64  PsGetNextProcessEx;
+            UINT64  MmIsSessionLeaderProcess;
+            UINT64  PsInvokeWin32Callout;
+            UINT64  MmEnumerateAddressSpaceAndReferenceImages;
+            UINT64  PsGetProcessProtection;
+            UINT64  PsGetProcessSignatureLevel;
+            UINT64  PsGetProcessSectionBaseAddress;
+            UINT64  SeCompareSigningLevels;
+            UINT64  KeComputeSha256;
+            UINT64  KeComputeParallelSha256;
+            UINT64  KeSetEvent;
+            UINT64  RtlpConvertFunctionEntry;
+            UINT64  RtlpLookupPrimaryFunctionEntry;
+            UINT64  RtlIsMultiSessionSku;
+            UINT64  KiEnumerateCallback;
+            UINT64  KeStackAttachProcess;
+            UINT64  KeUnstackDetachProcess;
+            UINT64  KeIpiGenericCall;
+            UINT64  Unkonwn$;      // nt!PG$xxxxxxx
+            UINT64  MmGetPhysicalAddress;
+            UINT64  MmUnlockPages;
+            UINT64  VslVerifyPage;
+            UINT64  KiGetInterruptObjectAddress;
+            UINT64  Unkonwn$;
+            UINT64  PsLookupProcessByProcessId;
+            UINT64  PsGetProcessId;
+            UINT64  MmCheckProcessShadow;
+            UINT64  MmGetImageRetpolineCodePage;
+            UINT64  Unkonwn$[4];
+            UINT64  Unkonwn$[4];   // nt!PG$vvvvvvv
+            UINT64  PsInitialSystemProcess;
+            UINT64  KiWaitAlways;
+            UINT64  KiEntropyTimingRoutine;
+            UINT64  KiProcessListHead;
+            UINT64  KiProcessListLock;
+            UINT64  ObpTypeObjectType;
+            UINT64  IoDriverObjectType;
+            UINT64  PsProcessType;
+            UINT64  PsActiveProcessHead;
+            UINT64  PsInvertedFunctionTable;
+            UINT64  PsLoadedModuleList;
+            UINT64  PsLoadedModuleResource;
+            UINT64  PsLoadedModuleSpinLock;
+            UINT64  PspActiveProcessLock;
+            UINT64  PspCidTable;
+            UINT64  ExpUuidLock;
+            UINT64  AlpcpPortListLock;
+            UINT64  KeServiceDescriptorTable;
+            UINT64  KeServiceDescriptorTableShadow;
+            UINT64  KeServiceDescriptorTableFilter;
+            UINT64  VfThunksExtended;
+            UINT64  PsWin32CallBack;
+            UINT64  Unkonwn$;               // nt!TriageImagePageSize+0x??
+            UINT64  KiTableInformation;
+            UINT64  HandleTableListHead;
+            UINT64  HandleTableListLock;
+            UINT64  ObpKernelHandleTable;
+            UINT64  KiUserSharedData;       // 0xFFFFF78000000000
+            UINT64  KiWaitNever;
+            UINT64  SeProtectedMapping;
+            UINT64  KiInterruptThunk;
+            UINT64  KiStackProtectNotifyEvent;
+            UINT64  PageTables;             // 0xFFFFB20000000000
+            UINT64  Ntos;
+            UINT64  Hal;
+            UINT64  KeNumberProcessors;
+            UINT64  Unkonwn$;               // nt!PG$vvvvvvvv
+            UINT64  Unkonwn$;               // nt!PG$vvvvvvvv
+            UINT64  RtlpInvertedFunctionTable;
+            UINT64  KxUnexpectedInterrupt0; // nt!KiIsrThunk or nt!KiIsrThunkShadow
+
+            UINT64  Unkonwn$[49];
+
+            UINT64  WorkerRoutine;
+            UINT64  WorkerRoutineContext;
+
+            UINT64  Unkonwn$;
+
+            UINT64  Prcb;
+            UINT64  PGPageBase;
+            UINT64  SecondParamOfEndOfUninitialize;
+            UINT64  DcpRoutineToBeScheduled;            // nt!KiTimerDispatch
+
+            UINT32  Unkonwn$;                           // NumberOfXXXX
+            UINT32  Unkonwn$;
+
+            UINT32  OffsetOfPGSelfValidation;           // INITKDBG: nt!PGSelfValidation
+            UINT32  OffsetOfRtlLookupFunctionEntryEx;   // nt!RtlLookupFunctionEntryEx
+            UINT32  OffsetOfFsRtlUninitializeSmallMcb;  // nt!FsRtlUninitializeSmallMcb
+            UINT32  OffsetOfFsRtlUnknown0;              // nt!PG$XXXXXXXX
+            UINT32  OffsetOfFsRtlUnkonwn1;              // 
+            UINT32  EndOffsetOf;
+
+            UINT64  SpinLock;
+
+            UINT64  Unkonwn$[8];
+
+            KIDTENTRY64 PGProtectIDTItems[3];
+
+            UINT64  Unkonwn$[10];
+
+            UINT64  BaseOfNtos;
+            UINT64  BaseOfHal;
+            UINT64  BaseOfNtosNtHeader;
+
+            UINT64  Unkonwn$[2];
+
+            UINT64  IsTiggerPG;
+            UINT64  BugCheckArg0;
+            UINT64  BugCheckArg1;
+            UINT64  BugCheckArg3;
+            UINT64  BugCheckArg2;
+
+            PGProtectString<4> PGProtectStrings;
+
+            UINT64  Unkonwn$[40];
+
+            UINT32  NumberOfProtectCodes;
+            UINT32  NumberOfProtectValues;
+
+            // PGProtectCode   ProtectCodes[NumberOfProtectCodes];
+            // PGProtectValue  ProtectValues[NumberOfProtectValues];
+        };
+    }
 }
 #pragma warning(pop)
